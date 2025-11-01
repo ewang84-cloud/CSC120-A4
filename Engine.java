@@ -1,21 +1,22 @@
-public class Engine {
+public class Engine implements EngineRequirements{
 
     private FuelType fuelType;
-    private double currentFuelLevel;
-    private double maxFuelLevel;
+    private double currentFuel;
+    private double maxFuel;
     
     /**
      * constructor
      */
-    public Engine(FuelType fuelType, double currentFuelLevel, double maxFuelLevel) {
+    public Engine(FuelType fuelType, double currentFuel, double maxFuel) {
      this.fuelType = fuelType;
-     this.currentFuelLevel = currentFuelLevel;
-     this.maxFuelLevel = maxFuelLevel;
+     this.currentFuel = currentFuel;
+     this.maxFuel = maxFuel;
     }
     
     /**
      * Get Fuel type: a public method to allow main to get Fuel Type
      */
+    @Override
     public FuelType getFuelType() {
         return this.fuelType;
     }
@@ -23,32 +24,36 @@ public class Engine {
     /**
      * Get Fuel Level: a public method to allow main to get Fuel Level
      */
-    public double getCurrentFuelLevel() {
-        return this.currentFuelLevel;
+    @Override
+    public double getCurrentFuel() {
+        return this.currentFuel;
     }
     
     /**
      * Get Fuel Max Level: a public method to allow main to get Fuel Max Level
      */
-    public double getMaxFuelLevel() {
-        return this.maxFuelLevel;
+    @Override
+    public double getMaxFuel() {
+        return this.maxFuel;
     }
     
     /**
      * Refuel: add fuel to max
      */
+    @Override
     public void refuel() {
-        this.currentFuelLevel = this.maxFuelLevel;
+        this.currentFuel = this.maxFuel;
     }
     
     /**
      * use the fuel, if there's 
      */
-    public boolean go() {
-        this.currentFuelLevel -= 10.0;
-        System.out.println("Remaining fuel: " + this.currentFuelLevel);
+    @Override
+    public Boolean go() {
+        this.currentFuel -= 10.0;
+        System.out.println("Remaining fuel: " + this.currentFuel);
         
-        if (this.currentFuelLevel > 0) {
+        if (this.currentFuel > 0) {
             return true;
         } else {
             return false;

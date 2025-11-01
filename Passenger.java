@@ -4,7 +4,7 @@ public class Passenger {
 
     /**
      * constructor
-     * @param name
+     * @param name name of the passenger
      */
     public Passenger(String name) {
         this.name = name;
@@ -20,6 +20,7 @@ public class Passenger {
     
     /**
      * a passenger gets on the car
+     * @param c the car to board
      */
     public void boardCar(Car c) {
         boolean success = c.addPassenger(this);
@@ -33,6 +34,7 @@ public class Passenger {
     
     /**
      * a passenger gets off the car
+     * @param c the car to get off from
      */
     public void getOffCar(Car c) {
         boolean success = c.removePassenger(this);

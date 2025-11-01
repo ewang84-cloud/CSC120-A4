@@ -26,13 +26,16 @@ public class Train implements TrainRequirements {
     /**
      * get the engine
      */
+    @Override
     public Engine getEngine() {
         return this.engine;
     }
     
     /**
-     * get the number i engine
+     * get the car from the array
+     * @param i the number of the car in the Arraylist that's getting
      */
+    @Override
     public Car getCar(int i) {
         return this.cars.get(i);
     }
@@ -40,6 +43,7 @@ public class Train implements TrainRequirements {
     /**
      * get the total number of the cars in the trains
      */
+    @Override
     public int getMaxCapacity() {
         int totalCapacity = 0;
         for (Car car : this.cars) {
@@ -51,6 +55,7 @@ public class Train implements TrainRequirements {
     /**
      * get the remaining seats
      */
+    @Override
     public int seatsRemaining() {
         int totalSeatsRemaining = 0;
         for (Car car : this.cars) {
@@ -62,6 +67,7 @@ public class Train implements TrainRequirements {
     /**
      * print the list of all the passenger
      */
+    @Override
     public void printManifest() {
         System.out.println("===== TRAIN MANIFEST =====");
         for (int i = 0; i < this.cars.size(); i++) {
